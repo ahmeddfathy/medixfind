@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedExFind - ابحث عن دوائك بسهولة</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <p>ابحث عن دوائك في جميع صيدليات بني سويف - خدمة مجانية لربط المرضى بالصيدليات</p>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="logo">
+                <h1>MedExFind</h1>
+            </div>
+
+            <div class="header-actions">
+                <button class="icon-btn search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="icon-btn account-btn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="icon-btn cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <h2>القائمة</h2>
+            <button class="close-menu" id="closeMenu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-menu-list">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="medicines.html">الأدوية</a></li>
+            <li><a href="services.html">خدماتنا</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: linear-gradient(rgba(72, 207, 203, 0.9), rgba(34, 151, 153, 0.9)), url('https://images.unsplash.com/photo-1576602976047-174e57a47881?w=1600&q=80');">
+        <div class="hero-content">
+            <div class="hero-overlay"></div>
+            <div class="hero-text">
+                <h2 class="hero-title">MedExFind - ابحث عن دوائك بسهولة</h2>
+                <p class="hero-subtitle">منصة تربط المرضى بالصيدليات في بني سويف - ابحث عن الدواء، اعرف السعر، واتصل بالصيدلية مباشرة</p>
+                
+                <!-- Search Bar -->
+                <div class="hero-search">
+                    <div class="search-container">
+                        <input type="text" id="heroSearchInput" placeholder="ابحث عن دواء..." class="search-input">
+                        <select id="heroLocationFilter" class="location-filter">
+                            <option value="">جميع المراكز</option>
+                            <option value="بني سويف">بني سويف</option>
+                            <option value="ببا">ببا</option>
+                            <option value="الفشن">الفشن</option>
+                            <option value="إهناسيا">إهناسيا</option>
+                            <option value="الواسطى">الواسطى</option>
+                            <option value="ناصر">ناصر</option>
+                            <option value="سمسطا">سمسطا</option>
+                        </select>
+                        <button class="btn btn-search" onclick="searchFromHero()">
+                            <i class="fas fa-search"></i> ابحث
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-scroll">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section" id="categories">
+        <div class="container">
+            <h2 class="section-title">تصفح فئات الأدوية</h2>
+            <div class="carousel-container">
+                <button class="carousel-btn prev-btn" id="categoriesPrev">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="categories-carousel">
+                <div class="category-card">
+                    <div class="category-image">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <h3>مسكنات الألم</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <i class="fas fa-capsules"></i>
+                    </div>
+                    <h3>مضادات حيوية</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <i class="fas fa-heart-pulse"></i>
+                    </div>
+                    <h3>أدوية القلب</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <i class="fas fa-syringe"></i>
+                    </div>
+                    <h3>أدوية السكري</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <i class="fas fa-lungs"></i>
+                    </div>
+                    <h3>أدوية الجهاز التنفسي</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <i class="fas fa-head-side-cough"></i>
+                    </div>
+                    <h3>أدوية البرد والإنفلونزا</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <i class="fas fa-tablets"></i>
+                    </div>
+                    <h3>أدوية الجهاز الهضمي</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h3>أدوية الأطفال</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>أدوية العيون</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <h3>العناية بالأسنان</h3>
+                </div>
+                </div>
+                <button class="carousel-btn next-btn" id="categoriesNext">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Medicines Section -->
+    <section class="rattan-section">
+        <div class="container">
+            <h2 class="section-title">الأدوية الأكثر بحثاً</h2>
+            <div class="carousel-container">
+                <button class="carousel-btn prev-btn" id="featuredPrev">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="products-carousel" id="featuredCarousel">
+                    <div class="product-card medicine-card">
+                        <div class="product-badge">متوفر</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80" alt="باراسيتامول">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">باراسيتامول 500 مجم</h3>
+                            <p class="medicine-category">مسكن للألم وخافض للحرارة</p>
+                            <div class="product-price">
+                                <span class="current-price">15 جنيه</span>
+                            </div>
+                            <p class="pharmacy-info"><i class="fas fa-map-marker-alt"></i> متوفر في 8 صيدليات - بني سويف</p>
+                            <button class="btn btn-add-cart" onclick="viewMedicineDetails('باراسيتامول')">عرض الصيدليات</button>
+                        </div>
+                    </div>
+                    <div class="product-card medicine-card">
+                        <div class="product-badge">متوفر</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=500&q=80" alt="أموكسيسيللين">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">أموكسيسيللين 500 مجم</h3>
+                            <p class="medicine-category">مضاد حيوي</p>
+                            <div class="product-price">
+                                <span class="current-price">45 جنيه</span>
+                            </div>
+                            <p class="pharmacy-info"><i class="fas fa-map-marker-alt"></i> متوفر في 6 صيدليات - بني سويف</p>
+                            <button class="btn btn-add-cart" onclick="viewMedicineDetails('أموكسيسيللين')">عرض الصيدليات</button>
+                        </div>
+                    </div>
+                    <div class="product-card medicine-card">
+                        <div class="product-badge">متوفر</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=500&q=80" alt="أوميبرازول">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">أوميبرازول 20 مجم</h3>
+                            <p class="medicine-category">علاج حموضة المعدة</p>
+                            <div class="product-price">
+                                <span class="current-price">35 جنيه</span>
+                            </div>
+                            <p class="pharmacy-info"><i class="fas fa-map-marker-alt"></i> متوفر في 5 صيدليات - ببا</p>
+                            <button class="btn btn-add-cart" onclick="viewMedicineDetails('أوميبرازول')">عرض الصيدليات</button>
+                        </div>
+                    </div>
+                    <div class="product-card medicine-card">
+                        <div class="product-badge">متوفر</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=500&q=80" alt="ميتفورمين">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">ميتفورمين 500 مجم</h3>
+                            <p class="medicine-category">علاج السكري</p>
+                            <div class="product-price">
+                                <span class="current-price">25 جنيه</span>
+                            </div>
+                            <p class="pharmacy-info"><i class="fas fa-map-marker-alt"></i> متوفر في 7 صيدليات - بني سويف</p>
+                            <button class="btn btn-add-cart" onclick="viewMedicineDetails('ميتفورمين')">عرض الصيدليات</button>
+                        </div>
+                    </div>
+                    <div class="product-card medicine-card">
+                        <div class="product-badge">متوفر</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=500&q=80" alt="لوسارتان">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">لوسارتان 50 مجم</h3>
+                            <p class="medicine-category">علاج ضغط الدم</p>
+                            <div class="product-price">
+                                <span class="current-price">55 جنيه</span>
+                            </div>
+                            <p class="pharmacy-info"><i class="fas fa-map-marker-alt"></i> متوفر في 4 صيدليات - الفشن</p>
+                            <button class="btn btn-add-cart" onclick="viewMedicineDetails('لوسارتان')">عرض الصيدليات</button>
+                        </div>
+                    </div>
+                    <div class="product-card medicine-card">
+                        <div class="product-badge">متوفر</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80" alt="سيتريزين">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">سيتريزين 10 مجم</h3>
+                            <p class="medicine-category">مضاد للحساسية</p>
+                            <div class="product-price">
+                                <span class="current-price">20 جنيه</span>
+                            </div>
+                            <p class="pharmacy-info"><i class="fas fa-map-marker-alt"></i> متوفر في 9 صيدليات - بني سويف</p>
+                            <button class="btn btn-add-cart" onclick="viewMedicineDetails('سيتريزين')">عرض الصيدليات</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn next-btn" id="featuredNext">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works-section">
+        <div class="container">
+            <div class="how-it-works-header">
+                <span class="section-badge">🚀 سهل وسريع</span>
+                <h2 class="section-title">كيف يعمل النظام؟</h2>
+                <p class="section-description">احصل على دوائك في 4 خطوات بسيطة</p>
+            </div>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>ابحث عن الدواء</h3>
+                    <p>أدخل اسم الدواء الذي تبحث عنه في شريط البحث الذكي</p>
+                    <div class="step-arrow">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>اختر الموقع</h3>
+                    <p>حدد المركز أو المدينة الأقرب إليك للبحث فيها</p>
+                    <div class="step-arrow">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-list-check"></i>
+                    </div>
+                    <h3>اعرض النتائج</h3>
+                    <p>شاهد قائمة الصيدليات المتوفر فيها الدواء مع الأسعار</p>
+                    <div class="step-arrow">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-phone-volume"></i>
+                    </div>
+                    <h3>احجز الدواء</h3>
+                    <p>اتصل مباشرة بالصيدلية واحجز الدواء بكل سهولة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Medicines Availability Banner Section -->
+    <section class="banner-section">
+        <div class="container">
+            <div class="banner-card" style="background-image: linear-gradient(135deg, rgba(72, 207, 203, 0.95), rgba(34, 151, 153, 0.95)), url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=1200&q=80'); background-size: cover; background-position: center;">
+                <div class="banner-content">
+                    <img src="index-images/medicines.png" alt="جميع أنواع الأدوية" style="width: 150px; height: 150px; margin-bottom: 20px; border-radius: 10px;">
+                    <h3>نوفر جميع أنواع الأدوية</h3>
+                    <p>
+                        في MedExFind متوفر لدينا جميع أنواع الأدوية، من أدوية الأمراض المزمنة مثل الضغط والسكر إلى المسكنات والمضادات الحيوية وغيرها.<br>
+                        احصل على دواءك بسهولة من أقرب صيدلية وبأفضل سعر.
+                    </p>
+                    <a href="medicines.html" class="btn btn-secondary">تصفح جميع الأدوية</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pharmacies Section -->
+    <section class="rattan-section">
+        <div class="container">
+            <h2 class="section-title">الصيدليات المشاركة</h2>
+            <div class="carousel-container">
+                <button class="carousel-btn prev-btn" id="consolePrev">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="products-carousel" id="consoleCarousel">
+                    <div class="product-card pharmacy-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1576602976047-174e57a47881?w=500&q=80" alt="صيدلية النهضة">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">صيدلية النهضة</h3>
+                            <p class="pharmacy-location"><i class="fas fa-map-marker-alt"></i> بني سويف - شارع سعد زغلول</p>
+                            <p class="pharmacy-medicines"><i class="fas fa-pills"></i> 250+ دواء متوفر</p>
+                            <p class="pharmacy-phone"><i class="fas fa-phone"></i> 01001234567</p>
+                            <button class="btn btn-add-cart" onclick="contactPharmacy('صيدلية النهضة')">اتصل الآن</button>
+                        </div>
+                    </div>
+                    <div class="product-card pharmacy-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=500&q=80" alt="صيدلية الحياة">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">صيدلية الحياة</h3>
+                            <p class="pharmacy-location"><i class="fas fa-map-marker-alt"></i> ببا - ميدان المحطة</p>
+                            <p class="pharmacy-medicines"><i class="fas fa-pills"></i> 180+ دواء متوفر</p>
+                            <p class="pharmacy-phone"><i class="fas fa-phone"></i> 01112345678</p>
+                            <button class="btn btn-add-cart" onclick="contactPharmacy('صيدلية الحياة')">اتصل الآن</button>
+                        </div>
+                    </div>
+                    <div class="product-card pharmacy-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=500&q=80" alt="صيدلية الشفاء">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">صيدلية الشفاء</h3>
+                            <p class="pharmacy-location"><i class="fas fa-map-marker-alt"></i> الفشن - شارع البنك</p>
+                            <p class="pharmacy-medicines"><i class="fas fa-pills"></i> 210+ دواء متوفر</p>
+                            <p class="pharmacy-phone"><i class="fas fa-phone"></i> 01223456789</p>
+                            <button class="btn btn-add-cart" onclick="contactPharmacy('صيدلية الشفاء')">اتصل الآن</button>
+                        </div>
+                    </div>
+                    <div class="product-card pharmacy-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=500&q=80" alt="صوره صيدليه">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">صيدلية العز</h3>
+                            <p class="pharmacy-location"><i class="fas fa-map-marker-alt"></i> إهناسيا - شارع المديرية</p>
+                            <p class="pharmacy-medicines"><i class="fas fa-pills"></i> 195+ دواء متوفر</p>
+                            <p class="pharmacy-phone"><i class="fas fa-phone"></i> 01334567890</p>
+                            <button class="btn btn-add-cart" onclick="contactPharmacy('صيدلية العز')">اتصل الآن</button>
+                        </div>
+                    </div>
+                    <div class="product-card pharmacy-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=500&q=80" alt="صورة صيدلية من الإنترنت">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">صيدلية السلام</h3>
+                            <p class="pharmacy-location"><i class="fas fa-map-marker-alt"></i> الواسطى - الشارع الرئيسي</p>
+                            <p class="pharmacy-medicines"><i class="fas fa-pills"></i> 165+ دواء متوفر</p>
+                            <p class="pharmacy-phone"><i class="fas fa-phone"></i> 01445678901</p>
+                            <button class="btn btn-add-cart" onclick="contactPharmacy('صيدلية السلام')">اتصل الآن</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn next-btn" id="consoleNext">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="faq-header">
+                <span class="faq-badge">ربما تفيدك!</span>
+                <h2 class="section-title">أسئلة شائعة</h2>
+                <p>إذا لم تجد ما تبحث عنه، لا تتردد في التواصل معنا مباشرة</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>ما هو MedExFind؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>MedExFind هو نظام مجاني يربط المرضى بالصيدليات في بني سويف. يساعدك في البحث عن الأدوية المتوفرة، مقارنة الأسعار، ومعرفة أقرب صيدلية لك.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>هل الخدمة مجانية؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>نعم، خدمة البحث والتصفح مجانية تماماً. هدفنا هو تسهيل وصول المرضى للأدوية التي يحتاجونها.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>كيف أضيف تذكير بالأدوية؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>اضغط على زر "أضف تذكير" في القسم المخصص، ثم أدخل اسم الدواء والمواعيد والجرعات. سيتم تذكيرك تلقائياً في الأوقات المحددة.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>هل يمكن طلب الأدوية عبر الموقع؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>حالياً، الموقع يوفر معلومات عن توفر الأدوية فقط. يمكنك الاتصال مباشرة بالصيدلية عبر الأرقام الموضحة لحجز أو طلب الدواء.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>كيف يمكن للصيدليات الانضمام؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>يمكن لأصحاب الصيدليات التواصل معنا عبر صفحة "التواصل" لتسجيل صيدليتهم وإضافة قائمة الأدوية المتوفرة لديهم.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h2 class="footer-logo">MedExFind</h2>
+                    <p class="footer-description">MedExFind هي منصة مجانية تربط المرضى بالصيدليات في بني سويف. نساعدك في البحث عن الأدوية المتوفرة بأفضل الأسعار مع إمكانية التواصل المباشر مع الصيدليات. خدمة تذكير بمواعيد الأدوية ومتابعة الأمراض المزمنة.</p>
+                    <a href="tel:+201122881051" class="footer-phone">
+                        <i class="fas fa-phone"></i>
+                        01122881051
+                    </a>
+                </div>
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="medicines.html">الأدوية</a></li>
+                        <li><a href="services.html">خدماتنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>تابعنا</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-snapchat"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MedExFind - جميع الحقوق محفوظة | خدمة مجانية لأهالي بني سويف</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/201122881051" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+

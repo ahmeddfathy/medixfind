@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأدوية - MedExFind</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Medicines Page Specific Styles */
+        .medicines-header {
+            background: linear-gradient(135deg, rgba(72, 207, 203, 0.9), rgba(34, 151, 153, 0.9)), url('medicines/medicines-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+        
+        .medicines-header h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+        
+        .medicines-header p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+        
+        .medicines-container {
+            display: flex;
+            gap: 30px;
+            padding: 40px 0;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        
+        .filter-sidebar {
+            flex: 0 0 280px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .filter-group {
+            margin-bottom: 30px;
+        }
+        
+        .filter-group h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--text-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+        
+        .filter-option {
+            margin-bottom: 12px;
+        }
+        
+        .filter-option label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 15px;
+            color: var(--text-color);
+        }
+        
+        .filter-option input[type="checkbox"],
+        .filter-option input[type="radio"] {
+            margin-left: 10px;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-color);
+        }
+        
+        .medicines-content {
+            flex: 1;
+        }
+        
+        .search-sort-bar {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        .search-box input:focus {
+            border-color: var(--primary-color);
+        }
+        
+        .sort-select {
+            padding: 12px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            outline: none;
+        }
+        
+        .results-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .results-count {
+            font-size: 16px;
+            color: var(--text-light);
+        }
+        
+        .medicines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .medicine-card-detailed {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            border: 1px solid var(--border-color);
+        }
+        
+        .medicine-card-detailed:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .medicine-card-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .medicine-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--success-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .medicine-card-body {
+            padding: 20px;
+        }
+        
+        .medicine-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 8px;
+        }
+        
+        .medicine-category-tag {
+            display: inline-block;
+            background: var(--bg-light);
+            color: var(--text-light);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .medicine-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .pharmacies-list {
+            margin-bottom: 15px;
+        }
+        
+        .pharmacy-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+        }
+        
+        .pharmacy-item:last-child {
+            border-bottom: none;
+        }
+        
+        .pharmacy-name-loc {
+            flex: 1;
+        }
+        
+        .pharmacy-name-loc strong {
+            display: block;
+            color: var(--text-color);
+        }
+        
+        .pharmacy-name-loc span {
+            color: var(--text-light);
+            font-size: 12px;
+        }
+        
+        .pharmacy-price {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .view-pharmacies-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .view-pharmacies-btn:hover {
+            background: var(--secondary-color);
+        }
+        
+        .mobile-filter-toggle {
+            display: none;
+            width: 100%;
+            padding: 15px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 992px) {
+            .medicines-container {
+                flex-direction: column;
+            }
+            
+            .filter-sidebar {
+                position: fixed;
+                left: -100%;
+                top: 0;
+                height: 100vh;
+                z-index: 2000;
+                transition: left 0.3s;
+                overflow-y: auto;
+            }
+            
+            .filter-sidebar.active {
+                left: 0;
+            }
+            
+            .mobile-filter-toggle {
+                display: block;
+            }
+            
+            .filter-sidebar-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0.5);
+                z-index: 1999;
+            }
+            
+            .filter-sidebar-overlay.active {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .medicines-header h1 {
+                font-size: 32px;
+            }
+            
+            .medicines-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-sort-bar {
+                flex-direction: column;
+            }
+            
+            .search-box {
+                width: 100%;
+            }
+            
+            .sort-select {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <p>ابحث عن دوائك في جميع صيدليات بني سويف - خدمة مجانية لربط المرضى بالصيدليات</p>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="logo">
+                <h1>MedExFind</h1>
+            </div>
+
+            <div class="header-actions">
+                <button class="icon-btn search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="icon-btn account-btn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="icon-btn cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <h2>القائمة</h2>
+            <button class="close-menu" id="closeMenu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-menu-list">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="medicines.html">الأدوية</a></li>
+            <li><a href="services.html">خدماتنا</a></li>
+        </ul>
+    </nav>
+
+    <!-- Medicines Header -->
+    <section class="medicines-header">
+        <h1>ابحث عن دوائك</h1>
+        <p>أكثر من 250 دواء متوفر في 15 صيدلية بمختلف مراكز بني سويف</p>
+    </section>
+
+    <!-- Filter Sidebar Overlay (Mobile) -->
+    <div class="filter-sidebar-overlay" id="filterOverlay" onclick="toggleMobileFilter()"></div>
+
+    <!-- Medicines Container -->
+    <div class="medicines-container">
+        <!-- Filter Sidebar -->
+        <aside class="filter-sidebar" id="filterSidebar">
+            <h3 style="margin-bottom: 25px;"><i class="fas fa-filter"></i> تصفية النتائج</h3>
+            
+            <div class="filter-group">
+                <h3>المركز</h3>
+                <div class="filter-option">
+                    <label>
+                        <input type="checkbox" name="location" value="" checked>
+                        جميع المراكز
+                    </label>
+                </div>
+                <div class="filter-option">
+                    <label>
+                        <input type="checkbox" name="location" value="بني سويف">
+                        بني سويف
+                    </label>
+                </div>
+                <div class="filter-option">
+                    <label>
+                        <input type="checkbox" name="location" value="ببا">
+                        ببا
+                    </label>
+                </div>
+                <div class="filter-option">
+                    <label>
+                        <input type="checkbox" name="location" value="الفشن">
+                        الفشن
+                    </label>
+                </div>
+                <div class="filter-option">
+                    <label>
+                        <input type="checkbox" name="location" value="إهناسيا">
+                        إهناسيا
+                    </label>
+                </div>
+                <div class="filter-option">
+                    <label>
+                        <input type="checkbox" name="location" value="الواسطى">
+                        الواسطى
+                    </label>
+                </div>
+                <div class="filter-option">
+                    <label>
+                        <input type="checkbox" name="location" value="ناصر">
+                        ناصر
+                    </label>
+                </div>
+                <div class="filter-option">
+                    <label>
+                        <input type="checkbox" name="location" value="سمسطا">
+                        سمسطا
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3>فئة الدواء</h3>
+                <div class="filter-option">
+                    <label>
+                        <input type="checkbox" name="category" value="" checked>
+                        جميع الفئات
+                    </label>
+                </div>
+                <div class="filter-option">
+                    <label>
+                        <input type="checkbox" name="category" value="مسكنات">
+                        مسكنات الألم
+                    </label>
+                </div>
+                <div class="filter-option">
+                    <label>
+                        <input type="checkbox" name="category" value="مضادات">
+                        مضادات حيوية
+                    </label>
+                </div>
+                <div class="filter-option">
+                    <label>
+                        <input type="checkbox" name="category" value="قلب">
+                        أدوية القلب
+                    </label>
+                </div>
+                <div class="filter-option">
+                    <label>
+                        <input type="checkbox" name="category" value="سكري">
+                        أدوية السكري
+                    </label>
+                </div>
+                <div class="filter-option">
+                    <label>
+                        <input type="checkbox" name="category" value="ضغط">
+                        علاج الضغط
+                    </label>
+                </div>
+                <div class="filter-option">
+                    <label>
+                        <input type="checkbox" name="category" value="حساسية">
+                        مضادات الحساسية
+                    </label>
+                </div>
+                <div class="filter-option">
+                    <label>
+                        <input type="checkbox" name="category" value="معدة">
+                        أدوية المعدة
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3>السعر</h3>
+                <div class="filter-option">
+                    <label>
+                        <input type="radio" name="price" value="" checked>
+                        جميع الأسعار
+                    </label>
+                </div>
+                <div class="filter-option">
+                    <label>
+                        <input type="radio" name="price" value="0-20">
+                        أقل من 20 جنيه
+                    </label>
+                </div>
+                <div class="filter-option">
+                    <label>
+                        <input type="radio" name="price" value="20-50">
+                        20 - 50 جنيه
+                    </label>
+                </div>
+                <div class="filter-option">
+                    <label>
+                        <input type="radio" name="price" value="50-100">
+                        50 - 100 جنيه
+                    </label>
+                </div>
+                <div class="filter-option">
+                    <label>
+                        <input type="radio" name="price" value="100+">
+                        أكثر من 100 جنيه
+                    </label>
+                </div>
+            </div>
+
+            <button class="view-pharmacies-btn" onclick="applyFilters()">تطبيق الفلتر</button>
+        </aside>
+
+        <!-- Medicines Content -->
+        <div class="medicines-content">
+            <!-- Mobile Filter Toggle -->
+            <button class="mobile-filter-toggle" onclick="toggleMobileFilter()">
+                <i class="fas fa-filter"></i> تصفية النتائج
+            </button>
+
+            <!-- Search and Sort Bar -->
+            <div class="search-sort-bar">
+                <div class="search-box">
+                    <input type="text" id="medicineSearch" placeholder="ابحث عن دواء..." onkeyup="searchMedicines()">
+                </div>
+                <select class="sort-select" id="sortSelect" onchange="sortMedicines()">
+                    <option value="relevance">الأكثر صلة</option>
+                    <option value="price-asc">السعر: من الأقل للأعلى</option>
+                    <option value="price-desc">السعر: من الأعلى للأقل</option>
+                    <option value="name">الاسم (أ - ي)</option>
+                    <option value="availability">الأكثر توفراً</option>
+                </select>
+            </div>
+
+            <!-- Results Info -->
+            <div class="results-info">
+                <span class="results-count">عرض <strong id="resultsCount">30</strong> نتيجة</span>
+            </div>
+
+            <!-- Medicines Grid -->
+            <div class="medicines-grid" id="medicinesGrid">
+                <!-- Medicine cards will be dynamically generated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h2 class="footer-logo">MedExFind</h2>
+                    <p class="footer-description">MedExFind هي منصة مجانية تربط المرضى بالصيدليات في بني سويف. نساعدك في البحث عن الأدوية المتوفرة بأفضل الأسعار مع إمكانية التواصل المباشر مع الصيدليات. خدمة تذكير بمواعيد الأدوية ومتابعة الأمراض المزمنة.</p>
+                    <a href="tel:+201122881051" class="footer-phone">
+                        <i class="fas fa-phone"></i>
+                        01122881051
+                    </a>
+                </div>
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="medicines.html">الأدوية</a></li>
+                        <li><a href="services.html">خدماتنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>تابعنا</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-snapchat"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MedExFind - جميع الحقوق محفوظة | خدمة مجانية لأهالي بني سويف</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/201122881051" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+
+        // Mobile filter toggle
+        function toggleMobileFilter() {
+            document.getElementById('filterSidebar').classList.toggle('active');
+            document.getElementById('filterOverlay').classList.toggle('active');
+        }
+        
+        // Sample medicines data
+        const medicinesData = [
+            { name: 'باراسيتامول 500 مجم', category: 'مسكنات', price: 15, location: 'بني سويف', pharmacies: 8, image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80' },
+            { name: 'أموكسيسيللين 500 مجم', category: 'مضادات', price: 45, location: 'بني سويف', pharmacies: 6, image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=500&q=80' },
+            { name: 'أوميبرازول 20 مجم', category: 'معدة', price: 35, location: 'ببا', pharmacies: 5, image: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=500&q=80' },
+            { name: 'ميتفورمين 500 مجم', category: 'سكري', price: 25, location: 'بني سويف', pharmacies: 7, image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80' },
+            { name: 'لوسارتان 50 مجم', category: 'ضغط', price: 55, location: 'الفشن', pharmacies: 4, image: 'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=500&q=80' },
+            { name: 'سيتريزين 10 مجم', category: 'حساسية', price: 20, location: 'بني سويف', pharmacies: 9, image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=500&q=80' },
+            { name: 'إيبوبروفين 400 مجم', category: 'مسكنات', price: 18, location: 'ببا', pharmacies: 7, image: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=500&q=80' },
+            { name: 'أزيثروميسين 500 مجم', category: 'مضادات', price: 65, location: 'إهناسيا', pharmacies: 5, image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=500&q=80' },
+            { name: 'أتورفاستاتين 20 مجم', category: 'قلب', price: 75, location: 'بني سويف', pharmacies: 6, image: 'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=500&q=80' },
+            { name: 'جليبين 5 مجم', category: 'سكري', price: 30, location: 'الواسطى', pharmacies: 4, image: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=500&q=80' },
+            { name: 'أملوديبين 5 مجم', category: 'ضغط', price: 40, location: 'بني سويف', pharmacies: 8, image: 'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=500&q=80' },
+            { name: 'ديكسلانزوبرازول 60 مجم', category: 'معدة', price: 95, location: 'ناصر', pharmacies: 3, image: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=500&q=80' },
+            { name: 'فيكسوفينادين 180 مجم', category: 'حساسية', price: 42, location: 'سمسطا', pharmacies: 5, image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80' },
+            { name: 'ديكلوفيناك 50 مجم', category: 'مسكنات', price: 22, location: 'بني سويف', pharmacies: 9, image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80' },
+            { name: 'سيبروفلوكساسين 500 مجم', category: 'مضادات', price: 52, location: 'ببا', pharmacies: 6, image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=500&q=80' },
+            { name: 'بيزوبرولول 5 مجم', category: 'قلب', price: 48, location: 'الفشن', pharmacies: 7, image: 'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=500&q=80' },
+            { name: 'جارداميت 2 مجم', category: 'سكري', price: 85, location: 'بني سويف', pharmacies: 5, image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80' },
+            { name: 'إنالابريل 10 مجم', category: 'ضغط', price: 38, location: 'إهناسيا', pharmacies: 4, image: 'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=500&q=80' },
+            { name: 'رانتيدين 150 مجم', category: 'معدة', price: 28, location: 'الواسطى', pharmacies: 6, image: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=500&q=80' },
+            { name: 'لوراتادين 10 مجم', category: 'حساسية', price: 16, location: 'بني سويف', pharmacies: 10, image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=500&q=80' },
+            { name: 'ترامادول 50 مجم', category: 'مسكنات', price: 85, location: 'ناصر', pharmacies: 4, image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80' },
+            { name: 'دوكسيسيكلين 100 مجم', category: 'مضادات', price: 48, location: 'سمسطا', pharmacies: 5, image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=500&q=80' },
+            { name: 'كارفيديلول 12.5 مجم', category: 'قلب', price: 62, location: 'بني سويف', pharmacies: 7, image: 'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=500&q=80' },
+            { name: 'جليميبيريد 2 مجم', category: 'سكري', price: 35, location: 'ببا', pharmacies: 8, image: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=500&q=80' },
+            { name: 'فالسارتان 160 مجم', category: 'ضغط', price: 68, location: 'الفشن', pharmacies: 5, image: 'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=500&q=80' },
+            { name: 'إيسوميبرازول 40 مجم', category: 'معدة', price: 72, location: 'إهناسيا', pharmacies: 4, image: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=500&q=80' },
+            { name: 'مونتيلوكاست 10 مجم', category: 'حساسية', price: 55, location: 'الواسطى', pharmacies: 6, image: 'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=500&q=80' },
+            { name: 'كيتوبروفين 100 مجم', category: 'مسكنات', price: 32, location: 'بني سويف', pharmacies: 7, image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80' },
+            { name: 'كلاريثروميسين 500 مجم', category: 'مضادات', price: 78, location: 'ناصر', pharmacies: 3, image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=500&q=80' },
+            { name: 'ديجوكسين 0.25 مجم', category: 'قلب', price: 25, location: 'سمسطا', pharmacies: 5, image: 'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=500&q=80' }
+        ];
+        
+        let currentMedicines = [...medicinesData];
+        
+        // Render medicines on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            renderMedicines(currentMedicines);
+        });
+        
+        function renderMedicines(medicines) {
+            const grid = document.getElementById('medicinesGrid');
+            grid.innerHTML = '';
+            
+            medicines.forEach(med => {
+                const card = `
+                    <div class="medicine-card-detailed">
+                        <div class="medicine-card-image" style="background-image: url('${med.image}')">
+                            <span class="medicine-badge">متوفر</span>
+                        </div>
+                        <div class="medicine-card-body">
+                            <h3 class="medicine-name">${med.name}</h3>
+                            <span class="medicine-category-tag">${getCategoryName(med.category)}</span>
+                            <div class="medicine-price">${med.price} جنيه</div>
+                            <div class="pharmacies-list">
+                                <div class="pharmacy-item">
+                                    <div class="pharmacy-name-loc">
+                                        <strong>صيدلية النهضة</strong>
+                                        <span>${med.location}</span>
+                                    </div>
+                                    <span class="pharmacy-price">${med.price} ج</span>
+                                </div>
+                                <div class="pharmacy-item">
+                                    <div class="pharmacy-name-loc">
+                                        <strong>+${med.pharmacies - 1} صيدلية أخرى</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="view-pharmacies-btn" onclick="viewMedicineDetails('${med.name}')">
+                                عرض جميع الصيدليات
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += card;
+            });
+            
+            document.getElementById('resultsCount').textContent = medicines.length;
+        }
+        
+        function getCategoryName(cat) {
+            const categories = {
+                'مسكنات': 'مسكنات الألم',
+                'مضادات': 'مضادات حيوية',
+                'قلب': 'أدوية القلب',
+                'سكري': 'أدوية السكري',
+                'ضغط': 'علاج الضغط',
+                'حساسية': 'مضادات الحساسية',
+                'معدة': 'أدوية المعدة'
+            };
+            return categories[cat] || cat;
+        }
+        
+        function searchMedicines() {
+            const searchTerm = document.getElementById('medicineSearch').value.toLowerCase();
+            currentMedicines = medicinesData.filter(med => 
+                med.name.toLowerCase().includes(searchTerm)
+            );
+            renderMedicines(currentMedicines);
+        }
+        
+        function sortMedicines() {
+            const sortBy = document.getElementById('sortSelect').value;
+            
+            switch(sortBy) {
+                case 'price-asc':
+                    currentMedicines.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-desc':
+                    currentMedicines.sort((a, b) => b.price - a.price);
+                    break;
+                case 'name':
+                    currentMedicines.sort((a, b) => a.name.localeCompare(b.name, 'ar'));
+                    break;
+                case 'availability':
+                    currentMedicines.sort((a, b) => b.pharmacies - a.pharmacies);
+                    break;
+            }
+            
+            renderMedicines(currentMedicines);
+        }
+        
+        function applyFilters() {
+            const selectedLocations = Array.from(document.querySelectorAll('input[name="location"]:checked'))
+                .map(cb => cb.value).filter(v => v);
+            const selectedCategories = Array.from(document.querySelectorAll('input[name="category"]:checked'))
+                .map(cb => cb.value).filter(v => v);
+            const selectedPrice = document.querySelector('input[name="price"]:checked').value;
+            
+            currentMedicines = medicinesData.filter(med => {
+                let locationMatch = selectedLocations.length === 0 || selectedLocations.includes(med.location);
+                let categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(med.category);
+                let priceMatch = true;
+                
+                if (selectedPrice) {
+                    if (selectedPrice === '0-20') priceMatch = med.price < 20;
+                    else if (selectedPrice === '20-50') priceMatch = med.price >= 20 && med.price < 50;
+                    else if (selectedPrice === '50-100') priceMatch = med.price >= 50 && med.price < 100;
+                    else if (selectedPrice === '100+') priceMatch = med.price >= 100;
+                }
+                
+                return locationMatch && categoryMatch && priceMatch;
+            });
+            
+            renderMedicines(currentMedicines);
+            
+            // Close mobile filter on apply
+            if (window.innerWidth <= 992) {
+                toggleMobileFilter();
+            }
+        }
+        
+        function viewMedicineDetails(medicineName) {
+            alert(`عرض تفاصيل ${medicineName}\n\nسيتم تطوير هذه الميزة قريباً لعرض جميع الصيدليات التي يتوفر فيها الدواء مع الأسعار وإمكانية الاتصال المباشر.`);
+        }
+    </script>
+</body>
+</html>
+

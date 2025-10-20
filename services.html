@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدماتنا - MedExFind</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="services-style.css">
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <p>ابحث عن دوائك في جميع صيدليات بني سويف - خدمة مجانية لربط المرضى بالصيدليات</p>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="logo">
+                <h1>MedExFind</h1>
+            </div>
+
+            <div class="header-actions">
+                <button class="icon-btn search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="icon-btn account-btn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="icon-btn cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <h2>القائمة</h2>
+            <button class="close-menu" id="closeMenu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-menu-list">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="medicines.html">الأدوية</a></li>
+            <li><a href="services.html">خدماتنا</a></li>
+        </ul>
+    </nav>
+
+    <!-- Services Hero Section -->
+    <section class="services-hero">
+        <div class="services-hero-content">
+            <div class="services-hero-icon">
+                <i class="fas fa-briefcase-medical"></i>
+            </div>
+            <h1>خدماتنا</h1>
+            <p>نقدم خدمات متكاملة لتسهيل عملية البحث عن الدواء وربط المريض بالصيدلية المناسبة.</p>
+        </div>
+    </section>
+
+    <!-- Medicine Availability Banner -->
+    <section class="medicine-availability-banner">
+        <div class="banner-container">
+            <div class="banner-content">
+                <div class="banner-text">
+                    <span class="banner-badge">
+                        <i class="fas fa-check-circle"></i>
+                        مجموعة شاملة
+                    </span>
+                    <h2>نوفر جميع أنواع الأدوية</h2>
+                    <p>من أدوية القلب والسكري إلى المسكنات والمضادات الحيوية، نساعدك في إيجاد دوائك في أقرب صيدلية</p>
+                    <ul class="banner-features">
+                        <li><i class="fas fa-capsules"></i> أكثر من 250+ دواء متوفر</li>
+                        <li><i class="fas fa-hospital"></i> في 15+ صيدلية بمحافظة بني سويف</li>
+                        <li><i class="fas fa-clock"></i> تحديث يومي للمخزون</li>
+                        <li><i class="fas fa-tags"></i> مقارنة الأسعار بين الصيدليات</li>
+                    </ul>
+                    <a href="medicines.html" class="banner-cta-btn">
+                        <i class="fas fa-search"></i>
+                        ابحث عن دوائك الآن
+                    </a>
+                </div>
+                <div class="banner-image">
+                    <img src="services/banner.png" alt="جميع أنواع الأدوية">
+                    <div class="banner-image-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Patient Services -->
+    <section class="services-section patient-services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-user-injured"></i> للمرضى</span>
+                <h2>خدمات المرضى</h2>
+                <p>نوفر لك كل ما تحتاجه للعثور على دوائك بسهولة</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>البحث عن الدواء بسهولة</h3>
+                    <p>ابحث عن أي دواء في جميع صيدليات بني سويف واحصل على النتائج فوراً.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>التذكير بمواعيد الأدوية</h3>
+                    <p>نظام تذكير ذكي يرسل لك إشعارات في المواعيد المحددة.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>مقارنة الأسعار</h3>
+                    <p>قارن أسعار الأدوية بين مختلف الصيدليات واختر الأنسب.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>معرفة الصيدلية الأقرب</h3>
+                    <p>اعثر على أقرب صيدلية عبر الخريطة التفاعلية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pharmacy Services -->
+    <section class="services-section pharmacy-services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-hospital"></i> للصيدليات</span>
+                <h2>خدمات الصيدليات</h2>
+                <p>حلول متطورة لإدارة صيدليتك بكفاءة</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <h3>إدارة المخزون</h3>
+                    <p>نظام متكامل لإدارة الأدوية والمخزون مع تنبيهات ذكية.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-inbox"></i>
+                    </div>
+                    <h3>استقبال الطلبات</h3>
+                    <p>استقبال ومتابعة طلبات العملاء بنظام إشعارات فوري.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>التواصل مع المرضى</h3>
+                    <p>تواصل مع مرضاك لتجديد الأدوية المزمنة.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>تقارير المبيعات</h3>
+                    <p>تقارير تفصيلية عن المبيعات الشهرية والأدوية الأكثر طلباً.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coming Soon -->
+    <section class="coming-soon-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-rocket"></i> قريباً</span>
+                <h2>الاشتراكات المستقبلية</h2>
+                <p>نعمل على تطوير خدمات جديدة</p>
+            </div>
+
+            <div class="coming-soon-grid">
+                <div class="coming-soon-card">
+                    <div class="coming-soon-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>توصيل الأدوية للمنازل</h3>
+                    <p>خدمة توصيل سريعة وآمنة حتى باب منزلك.</p>
+                </div>
+
+                <div class="coming-soon-card">
+                    <div class="coming-soon-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>اشتراك شهري للصيدليات</h3>
+                    <p>باقات اشتراك مميزة بأسعار تنافسية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>انضم إلى عائلة MedExFind</h2>
+            <p>سواء كنت مريضاً أو صيدلية، نحن هنا لمساعدتك!</p>
+            <div class="cta-buttons">
+                <a href="medicines.html" class="cta-btn cta-btn-primary">
+                    <i class="fas fa-search"></i>
+                    ابدأ البحث عن دوائك
+                </a>
+                <a href="contact.html" class="cta-btn cta-btn-secondary">
+                    <i class="fas fa-hospital"></i>
+                    انضم كصيدلية الآن
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h2 class="footer-logo">MedExFind</h2>
+                    <p class="footer-description">منصة مجانية تربط المرضى بالصيدليات في بني سويف.</p>
+                    <a href="tel:+201122881051" class="footer-phone">
+                        <i class="fas fa-phone"></i>
+                        01122881051
+                    </a>
+                </div>
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="medicines.html">الأدوية</a></li>
+                        <li><a href="services.html">خدماتنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>تابعنا</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-snapchat"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MedExFind - جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/201122881051" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
