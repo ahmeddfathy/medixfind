@@ -1,7 +1,7 @@
 /* ==================== Services Page Styles ==================== */
 
 .services-hero {
-    background: linear-gradient(135deg, rgba(72, 207, 203, 0.95), rgba(34, 151, 153, 0.95)), 
+    background: linear-gradient(135deg, rgba(72, 207, 203, 0.5), rgba(34, 151, 153, 0.5)), 
                 url('https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=1600&q=80');
     background-size: cover;
     background-position: center;
