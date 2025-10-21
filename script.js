@@ -171,7 +171,7 @@ function viewMedicineDetails(medicineName) {
 
 function contactPharmacy(pharmacyName) {
     const message = `أريد الاستفسار عن الأدوية المتوفرة لديكم في ${pharmacyName}`;
-    const whatsappUrl = `https://wa.me/201001234567?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/201122881051?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
 }
 
@@ -442,5 +442,5 @@ window.addEventListener('DOMContentLoaded', () => {
 // ==================== Console Welcome Message ====================
 console.log('%c💊 MedExFind', 'font-size: 24px; font-weight: bold; color: #48cfcb;');
 console.log('%cمرحباً بك في نظام البحث عن الأدوية!', 'font-size: 16px; color: #666;');
-console.log('%cللاستفسارات: +201001234567', 'font-size: 14px; color: #229799;');
+console.log('%cللاستفسارات: 01122881051', 'font-size: 14px; color: #229799;');
 

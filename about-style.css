@@ -1,0 +1,63 @@
+body { 
+    background-color: #F5F5F5; 
+    color: #424242; 
+    font-family: 'Cairo', sans-serif; 
+    font-size: 16px; 
+}
+.header-section { 
+    background: url('https://img.freepik.com/free-photo/medicine-blue-background-flat-lay_23-2149341579.jpg?t=st=1729350000~exp=1729353600~hmac=2a9b7d9a63d21ff1a8ac1eb4f1a8a6dfcd32e0a7b58bce278f77f2195f5148b7&w=1380') center/cover no-repeat; 
+    color: white; 
+    padding: 80px 0; 
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    position: relative;
+}
+.header-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(34, 151, 153, 0.6);
+}
+.header-content {
+    position: relative;
+    z-index: 2;
+}
+.header-logo {
+    width: 100px;
+    margin-bottom: 20px;
+}
+h2 i { color: #229799; margin-left: 8px; }
+.values-card { 
+    background-color: white; 
+    border: 1px solid #229799; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    transition: transform 0.3s; 
+}
+
+ .values-card:hover { transform: translateY(-5px); }
+.team-member { text-align: center; margin-bottom: 20px; }
+.team-member h5 { font-weight: 600; color: #229799; }
+.carousel-item img { width: 100px; height: 100px; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+h2 { font-size: 2rem; font-weight: 600; color: #424242; }
+
+/* خلفية بيضاء للسكشنات */
+.py-5 {
+    background-color: white;
+}
+
+/* إخفاء أسهم الكاروسيل في الموبايل */
+.carousel-control-prev,
+.carousel-control-next {
+    display: none !important;
+}
+
+#teamCarousel .carousel-control-prev,
+#teamCarousel .carousel-control-next {
+    display: none !important;
+}
+
+/* تحسين للموبايل */
+@media (max-width: 768px) { 
+    .header-section { padding: 40px 0; }
+    .header-section h1 { font-size: 2rem; }
+    body { font-size: 14px; }}
+
