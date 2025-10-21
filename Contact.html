@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا - MedExFind</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="Contact-style.css">
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <p>ابحث عن دوائك في جميع صيدليات بني سويف - خدمة مجانية لربط المرضى بالصيدليات</p>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">
+                <h1>MedExFind</h1>
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn search-btn"><i class="fas fa-search"></i></button>
+                <button class="icon-btn account-btn"><i class="fas fa-user"></i></button>
+                <button class="icon-btn cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <h2>القائمة</h2>
+            <button class="close-menu" id="closeMenu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-menu-list">
+            <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+            <li><a href="medicines.html"><i class="fas fa-pills"></i> الأدوية</a></li>
+            <li><a href="services.html"><i class="fas fa-concierge-bell"></i> خدماتنا</a></li>
+            <li><a href="about.html"><i class="fas fa-info-circle"></i> من نحن</a></li>
+            <li><a href="Contact.html"><i class="fas fa-envelope"></i> اتصل بنا</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Hero Section -->
+    <section class="contact-hero">
+        <div class="contact-hero-content">
+            <div class="contact-hero-icon">
+                <i class="fas fa-comments"></i>
+            </div>
+            <h1>تواصل معنا</h1>
+            <p>نسعد دائمًا بتواصلك معنا لأي استفسار أو اقتراح.</p>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <div class="form-header">
+                        <div class="form-header-icon">
+                            <i class="fas fa-paper-plane"></i>
+                        </div>
+                        <h3>أرسل لنا رسالة</h3>
+                        <p>سنقوم بالرد عليك في أسرع وقت ممكن</p>
+                    </div>
+
+                    <form id="contactForm" class="modern-contact-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <input type="text" id="name" placeholder="الاسم الكامل" required>
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <input type="tel" id="phone" placeholder="رقم الهاتف" required>
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <input type="email" id="email" placeholder="البريد الإلكتروني" required>
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-wrapper select-wrapper">
+                                <select id="subject" required>
+                                    <option value="" disabled selected>نوع الرسالة</option>
+                                    <option value="استفسار">استفسار</option>
+                                    <option value="شكوى">شكوى</option>
+                                    <option value="اقتراح">اقتراح</option>
+                                </select>
+                                <i class="fas fa-list"></i>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-wrapper textarea-wrapper">
+                                <textarea id="message" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
+                                <i class="fas fa-comment-dots"></i>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="modern-submit-btn">
+                            <span class="btn-text">
+                                <i class="fas fa-paper-plane"></i>
+                                إرسال الرسالة
+                            </span>
+                            <span class="btn-shine"></span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info Section -->
+                <div class="contact-info-section">
+                    <div class="contact-info-header">
+                        <h2 class="section-title">معلومات الاتصال</h2>
+                        <p class="section-subtitle">تواصل معنا عبر إحدى القنوات التالية</p>
+                    </div>
+                    
+                    <!-- Contact Info Cards -->
+                    <div class="contact-info-cards">
+                    <div class="info-card">
+                        <div class="info-card-icon">
+                            <i class="fas fa-phone-volume"></i>
+                        </div>
+                        <div class="info-card-content">
+                            <h4>اتصل بنا</h4>
+                            <p>متاحون على مدار الساعة</p>
+                            <a href="tel:+201122881051" class="info-link">01122881051</a>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-card-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="info-card-content">
+                            <h4>واتساب</h4>
+                            <p>راسلنا عبر الواتساب</p>
+                            <a href="https://wa.me/201122881051" class="info-link" target="_blank">تواصل معنا</a>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-card-icon">
+                            <i class="fas fa-envelope-open-text"></i>
+                        </div>
+                        <div class="info-card-content">
+                            <h4>البريد الإلكتروني</h4>
+                            <p>أرسل لنا استفسارك</p>
+                            <a href="mailto:info@medexfind.com" class="info-link">info@medexfind.com</a>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-card-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-card-content">
+                            <h4>العنوان</h4>
+                            <p>محافظة بني سويف</p>
+                            <span class="info-text">بني سويف، مصر</span>
+                        </div>
+                    </div>
+                    </div>
+                    
+                    <!-- Map Section Inside Contact Info -->
+                    <div class="contact-map-section">
+                        <h3 class="map-title">موقعنا على الخريطة</h3>
+                        <div class="map-container-small">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55234.89156384384!2d31.06443887832031!3d29.066145100000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14585b2de0f7f2b5%3A0x93b2b50f51e4e3e9!2sBeni%20Suef%2C%20Beni%20Suef%20Governorate!5e0!3m2!1sen!2seg!4v1729534800000!5m2!1sen!2seg"
+                                width="100%" 
+                                height="300" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-star"></i> آراء عملائنا</span>
+                <h2 class="section-title">بعض من آراء عملائنا</h2>
+                <p>نفخر بثقة عملائنا وآرائهم الإيجابية</p>
+            </div>
+
+            <div class="reviews-grid">
+                <!-- Review Card 1 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div>
+                                <h4>أحمد محمد</h4>
+                                <p class="review-date">منذ أسبوع</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="review-text">خدمة ممتازة! وفرت علي وقت كبير في البحث عن الدواء. الموقع سهل الاستخدام وسريع.</p>
+                </div>
+
+                <!-- Review Card 2 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div>
+                                <h4>فاطمة علي</h4>
+                                <p class="review-date">منذ 3 أيام</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="review-text">تطبيق رائع جداً! ساعدني في إيجاد دواء والدي بسرعة. شكراً لفريق العمل المميز.</p>
+                </div>
+
+                <!-- Review Card 3 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div>
+                                <h4>محمود حسن</h4>
+                                <p class="review-date">منذ يومين</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="review-text">خدمة جيدة ومفيدة جداً، أتمنى إضافة المزيد من الصيدليات في المستقبل.</p>
+                </div>
+            </div>
+
+            <!-- Add Review Form -->
+            <div class="add-review-section">
+                <h3><i class="fas fa-pen"></i> شاركنا رأيك</h3>
+                <p>نسعد بمعرفة تجربتك معنا</p>
+                
+                <form id="reviewForm" class="review-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <input type="text" id="reviewerName" placeholder="اسمك الكامل" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-wrapper">
+                                <select id="reviewRating" required>
+                                    <option value="" disabled selected>-- اختر التقييم --</option>
+                                    <option value="5">⭐⭐⭐⭐⭐ ممتاز</option>
+                                    <option value="4">⭐⭐⭐⭐ جيد جداً</option>
+                                    <option value="3">⭐⭐⭐ جيد</option>
+                                    <option value="2">⭐⭐ مقبول</option>
+                                    <option value="1">⭐ ضعيف</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <textarea id="reviewText" rows="4" placeholder="شاركنا تجربتك مع MedExFind..." required></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-add-cart btn-submit">
+                        <i class="fas fa-paper-plane"></i> إرسال التقييم
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h2 class="footer-logo">MedExFind</h2>
+                    <p class="footer-description">MedExFind هي منصة مجانية تربط المرضى بالصيدليات في بني سويف. نساعدك في البحث عن الأدوية المتوفرة بأفضل الأسعار مع إمكانية التواصل المباشر مع الصيدليات. خدمة تذكير بمواعيد الأدوية ومتابعة الأمراض المزمنة.</p>
+                    <a href="tel:+201122881051" class="footer-phone">
+                        <i class="fas fa-phone"></i>
+                        01122881051
+                    </a>
+                </div>
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                        <li><a href="medicines.html"><i class="fas fa-pills"></i> الأدوية</a></li>
+                        <li><a href="services.html"><i class="fas fa-concierge-bell"></i> خدماتنا</a></li>
+                        <li><a href="about.html"><i class="fas fa-info-circle"></i> من نحن</a></li>
+                        <li><a href="Contact.html"><i class="fas fa-envelope"></i> اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>تابعنا</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-snapchat"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MedExFind - جميع الحقوق محفوظة | خدمة مجانية لأهالي بني سويف</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/201122881051" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+    <script src="contact.js"></script>
+</body>
+</html>
