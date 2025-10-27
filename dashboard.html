@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - لوحة التحكم</title>
+    <link rel="stylesheet" href="dashboard-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <div class="navbar-content">
+            <div class="navbar-right">
+                <div class="user-profile-nav">
+                    <i class="fas fa-chevron-down"></i>
+                    <div class="user-info">
+                        <span class="user-name">أحمد محمد</span>
+                        <span class="user-role">مدير</span>
+                    </div>
+                    <img src="https://i.pravatar.cc/40" alt="User">
+                </div>
+                <button class="icon-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </button>
+                <button class="icon-btn">
+                    <i class="fas fa-envelope"></i>
+                    <span class="badge">5</span>
+                </button>
+            </div>
+            <div class="navbar-left">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="ابحث هنا..." class="search-input">
+                </div>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fas fa-capsules"></i>
+        </div>
+        <nav class="nav-menu">
+            <a href="#" class="nav-item active">
+                <i class="fas fa-th-large"></i>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-shopping-bag"></i>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-box"></i>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-chart-bar"></i>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-file-alt"></i>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-calendar"></i>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-bell"></i>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-cog"></i>
+            </a>
+        </nav>
+        <div class="user-profile">
+            <img src="https://i.pravatar.cc/40" alt="User">
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <h1>Dashboard</h1>
+            </div>
+            <div class="header-right">
+                <span class="date-range">10-06-2020 <i class="fas fa-arrow-right"></i> 10-10-2020</span>
+            </div>
+        </header>
+
+        <!-- Stats Cards -->
+        <section class="stats-cards">
+            <div class="card card-purple">
+                <div class="card-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="card-content">
+                    <h3>178+</h3>
+                    <p>Save Products</p>
+                </div>
+            </div>
+
+            <div class="card card-blue">
+                <div class="card-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="card-content">
+                    <h3>20+</h3>
+                    <p>Stock Products</p>
+                </div>
+            </div>
+
+            <div class="card card-red">
+                <div class="card-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <div class="card-content">
+                    <h3>190+</h3>
+                    <p>Sales Products</p>
+                </div>
+            </div>
+
+            <div class="card card-orange">
+                <div class="card-icon">
+                    <i class="fas fa-box"></i>
+                </div>
+                <div class="card-content">
+                    <h3>12+</h3>
+                    <p>Job Applications</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Overview & Analytics -->
+        <section class="dashboard-overview">
+            <div class="overview-chart">
+                <div class="chart-header">
+                    <div class="chart-info">
+                        <h2>Dashboard</h2>
+                        <p>Overview of latest Month</p>
+                    </div>
+                    <div class="chart-tabs">
+                        <button class="tab">DAILY</button>
+                        <button class="tab">WEEKLY</button>
+                        <button class="tab active">MONTHLY</button>
+                        <button class="tab">YEARLY</button>
+                    </div>
+                </div>
+
+                <div class="earnings">
+                    <h3>$6468.96</h3>
+                    <p>Current Month Earnings</p>
+                </div>
+
+                <div class="sales-count">
+                    <h3>82</h3>
+                    <p>Current Month Sales</p>
+                </div>
+
+                <button class="btn-summary">Last Month Summary</button>
+
+                <!-- Chart Canvas -->
+                <div class="chart-container">
+                    <canvas id="mainChart"></canvas>
+                </div>
+
+                <!-- Bottom Metrics -->
+                <div class="bottom-metrics">
+                    <div class="metric">
+                        <div class="metric-icon pink">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <div class="metric-info">
+                            <p>Wallet Balance</p>
+                            <h4>$3,567.80</h4>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-icon purple">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="metric-info">
+                            <p>Referral Earning</p>
+                            <h4>$1,580.53</h4>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-icon blue">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="metric-info">
+                            <p>Estimate Sales</p>
+                            <h4>$3893.50</h4>
+                        </div>
+                    </div>
+
+                    <div class="metric">
+                        <div class="metric-icon cyan">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="metric-info">
+                            <p>Earning</p>
+                            <h4>$53,587.54</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Section -->
+            <div class="analytics-section">
+                <div class="analytics-header">
+                    <h2>Analytics</h2>
+                    <button class="btn-more">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                </div>
+
+                <div class="donut-chart">
+                    <canvas id="donutChart"></canvas>
+                    <div class="chart-center">
+                        <h3>80%</h3>
+                        <p>Transaction</p>
+                    </div>
+                </div>
+
+                <div class="legend">
+                    <div class="legend-item">
+                        <span class="dot purple"></span>
+                        <span>Sale</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="dot yellow"></span>
+                        <span>Distribute</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="dot red"></span>
+                        <span>Return</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Activities & Order Status -->
+        <section class="bottom-section">
+            <!-- Recent Activities -->
+            <div class="recent-activities">
+                <h2>Recent Activities</h2>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon pink">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="activity-info">
+                            <p class="activity-time">40 Mins Ago</p>
+                            <h4>Task Updated</h4>
+                            <p class="activity-desc">Pawvin Updated a Task</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon purple">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="activity-info">
+                            <p class="activity-time">1 day ago</p>
+                            <h4>Deal Added</h4>
+                            <p class="activity-desc">Pawvin Updated a Task</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon cyan">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <div class="activity-info">
+                            <p class="activity-time">40 Mins Ago</p>
+                            <h4>Published Article</h4>
+                            <p class="activity-desc">Sarah Updated a Article</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Status -->
+            <div class="order-status">
+                <div class="order-header">
+                    <div>
+                        <h2>Order Status</h2>
+                        <p>Overview of latest month</p>
+                    </div>
+                    <button class="btn-search">
+                        <i class="fas fa-search"></i>
+                        Search
+                    </button>
+                </div>
+
+                <div class="order-tabs">
+                    <button class="order-tab active">
+                        <i class="fas fa-file-invoice"></i> INVOICE
+                    </button>
+                    <button class="order-tab">CUSTOMERS</button>
+                    <button class="order-tab">FROM</button>
+                    <button class="order-tab">PRICE</button>
+                    <button class="order-tab">STATUS</button>
+                    <button class="order-tab">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                </div>
+
+                <table class="order-table">
+                    <tbody>
+                        <tr>
+                            <td>12398</td>
+                            <td>Charly dons</td>
+                            <td>Russia</td>
+                            <td>$2652</td>
+                            <td><span class="status-badge pink">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td>12398</td>
+                            <td>Charly dons</td>
+                            <td>Russia</td>
+                            <td>$2652</td>
+                            <td><span class="status-badge purple">Open</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="table-footer">Showing 1 to 20 entries</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
+
