@@ -24,44 +24,71 @@ if (selectElement && selectWrapper) {
 }
 
 // Contact Form Submission
-const contactForm = document.getElementById('contactForm');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = {
-            name: document.getElementById('name').value,
-            phone: document.getElementById('phone').value,
-            email: document.getElementById('email').value,
-            subject: document.getElementById('subject').value,
-            message: document.getElementById('message').value
-        };
-        
-        // Show loading state
-        const submitBtn = contactForm.querySelector('.btn-submit');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
-        submitBtn.disabled = true;
-        
-        // Simulate sending (replace with actual API call)
-        setTimeout(() => {
-            // Show success message
-            showNotification('تم إرسال رسالتك بنجاح! سنتواصل معك قريباً', 'success');
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            // Reset form
-            contactForm.reset();
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
             
-            // Reset button
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
+            // Show loading state
+            const submitBtn = contactForm.querySelector('.btn-submit');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+            submitBtn.disabled = true;
             
-            // Log form data (for development)
-            console.log('Form submitted:', formData);
-        }, 2000);
+            // Simulate sending (replace with actual API call)
+            setTimeout(() => {
+                // Show success message
+                showNotification('تم إرسال رسالتك بنجاح! سنتواصل معك قريباً', 'success');
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Log form data (for development)
+                console.log('Form submitted:', formData);
+            }, 2000);
+        });
+    }
+    
+    // Scroll Animation for Contact Form and Info Sections
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, {
+        threshold: 0.1
     });
-}
+    
+    // Add scroll animations only to contact form and info sections
+    const formWrapper = document.querySelector('.contact-form-wrapper');
+    const infoSection = document.querySelector('.contact-info-section');
+    
+    if (formWrapper) {
+        formWrapper.classList.add('hidden', 'slide-in-right');
+        observer.observe(formWrapper);
+    }
+    
+    if (infoSection) {
+        infoSection.classList.add('hidden', 'slide-in-left');
+        observer.observe(infoSection);
+    }
+});
 
 // Show notification function
 function showNotification(message, type = 'success') {

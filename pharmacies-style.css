@@ -1,0 +1,514 @@
+/* ==================== Pharmacies Header Section ==================== */
+.pharmacies-header {
+    background: linear-gradient(135deg, rgba(72, 207, 203, 0.9), rgba(34, 151, 153, 0.9)), 
+                url('https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 80px 0 60px;
+    text-align: center;
+    position: relative;
+}
+
+.pharmacies-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(72, 207, 203, 0.85), rgba(34, 151, 153, 0.85));
+    z-index: 1;
+}
+
+.pharmacies-header .container {
+    position: relative;
+    z-index: 2;
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.header-icon {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.header-icon i {
+    font-size: 48px;
+    color: white;
+}
+
+.pharmacies-header h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.pharmacies-header p {
+    font-size: 20px;
+    opacity: 0.95;
+    line-height: 1.8;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== Filter & Search Section ==================== */
+.filter-search-section {
+    padding: 40px 0;
+    background: var(--bg-light);
+}
+
+.filter-search-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: var(--shadow-lg);
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.search-box {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.search-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+    font-size: 20px;
+    pointer-events: none;
+}
+
+.search-input {
+    width: 100%;
+    padding: 18px 60px 18px 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(72, 207, 203, 0.1);
+}
+
+.filters-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    align-items: start;
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.filter-item label {
+    font-weight: 600;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+}
+
+.filter-select {
+    padding: 12px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 15px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(72, 207, 203, 0.1);
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 15px;
+    background: white;
+}
+
+.radio-label:hover {
+    border-color: var(--primary-color);
+    background: rgba(72, 207, 203, 0.05);
+}
+
+.radio-label input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.radio-label input[type="radio"]:checked + span {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.radio-label:has(input:checked) {
+    border-color: var(--primary-color);
+    background: rgba(72, 207, 203, 0.1);
+}
+
+/* ==================== Pharmacy List Section ==================== */
+.pharmacy-list-section {
+    padding: 60px 0;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.section-header h2 {
+    font-size: 32px;
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+.results-count {
+    color: var(--text-light);
+    font-size: 16px;
+}
+
+.results-count span {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.pharmacies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+/* ==================== Pharmacy Card ==================== */
+.pharmacy-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.pharmacy-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.pharmacy-image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.pharmacy-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.pharmacy-card:hover .pharmacy-image img {
+    transform: scale(1.1);
+}
+
+.pharmacy-status {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.pharmacy-status.open {
+    background: rgba(40, 167, 69, 0.95);
+    color: white;
+}
+
+.pharmacy-status.closed {
+    background: rgba(220, 53, 69, 0.95);
+    color: white;
+}
+
+.pharmacy-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1;
+}
+
+.pharmacy-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.pharmacy-name {
+    font-size: 22px;
+    color: var(--text-color);
+    font-weight: 700;
+    flex: 1;
+}
+
+.pharmacy-rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 193, 7, 0.1);
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.pharmacy-rating i {
+    color: #ffc107;
+    font-size: 16px;
+}
+
+.pharmacy-rating span {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 15px;
+}
+
+.pharmacy-description {
+    color: var(--text-light);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.pharmacy-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-color);
+    font-size: 14px;
+}
+
+.detail-item i {
+    color: var(--primary-color);
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+}
+
+.pharmacy-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    box-shadow: 0 4px 12px rgba(72, 207, 203, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(72, 207, 203, 0.4);
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* ==================== Animations ==================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== Responsive Design ==================== */
+@media (max-width: 1200px) {
+    .pharmacies-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .pharmacies-header {
+        padding: 60px 0 40px;
+    }
+
+    .pharmacies-header h1 {
+        font-size: 36px;
+    }
+
+    .pharmacies-header p {
+        font-size: 16px;
+    }
+
+    .header-icon {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 20px;
+    }
+
+    .header-icon i {
+        font-size: 36px;
+    }
+
+    .filter-search-card {
+        padding: 20px;
+    }
+
+    .filters-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .section-header h2 {
+        font-size: 26px;
+    }
+
+    .pharmacies-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .pharmacy-actions {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .pharmacies-header h1 {
+        font-size: 28px;
+    }
+
+    .pharmacies-header p {
+        font-size: 14px;
+    }
+
+    .pharmacy-name {
+        font-size: 20px;
+    }
+
+    .btn {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+}
+
+/* ==================== Empty State ==================== */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-light);
+}
+
+.empty-state i {
+    font-size: 64px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.empty-state h3 {
+    font-size: 24px;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    font-size: 16px;
+}

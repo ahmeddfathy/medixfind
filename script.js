@@ -37,6 +37,43 @@ faqItems.forEach(item => {
     });
 });
 
+// ==================== Cart System ====================
+let cart = JSON.parse(localStorage.getItem('medexfind_cart')) || [];
+
+function updateCartCount() {
+    const cartCountElement = document.querySelector('.cart-count');
+    if (cartCountElement) {
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCountElement.textContent = totalItems;
+    }
+}
+
+// Add to cart function
+function addToCart(name, price, image) {
+    const existingItem = cart.find(item => item.name === name);
+    
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({
+            id: Date.now(),
+            name: name,
+            price: price,
+            image: image,
+            quantity: 1
+        });
+    }
+    
+    localStorage.setItem('medexfind_cart', JSON.stringify(cart));
+    updateCartCount();
+    showNotification(`${name} تم إضافته للسلة`, 'success');
+}
+
+// Initialize cart count on load
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+});
+
 // ==================== Medication Reminders ====================
 let reminders = JSON.parse(localStorage.getItem('medicationReminders')) || [];
 

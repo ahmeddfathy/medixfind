@@ -32,7 +32,7 @@
                 <button class="icon-btn account-btn">
                     <i class="fas fa-user"></i>
                 </button>
-                <button class="icon-btn cart-btn">
+                <button class="icon-btn cart-btn" onclick="window.location.href='cart.html'">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-count">0</span>
                 </button>
@@ -51,6 +51,7 @@
         <ul class="mobile-menu-list">
             <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
             <li><a href="medicines.html"><i class="fas fa-pills"></i> الأدوية</a></li>
+            <li><a href="pharmacies.html"><i class="fas fa-clinic-medical"></i> الصيدليات</a></li>
             <li><a href="services.html"><i class="fas fa-concierge-bell"></i> خدماتنا</a></li>
             <li><a href="about.html"><i class="fas fa-info-circle"></i> من نحن</a></li>
             <li><a href="Contact.html"><i class="fas fa-envelope"></i> اتصل بنا</a></li>
@@ -189,7 +190,7 @@
                                 <span class="current-price">15 جنيه</span>
                             </div>
                             <p class="pharmacy-info"><i class="fas fa-map-marker-alt"></i> متوفر في 8 صيدليات - بني سويف</p>
-                            <button class="btn btn-add-cart" onclick="viewMedicineDetails('باراسيتامول')">عرض الصيدليات</button>
+                            <button class="btn btn-add-cart" onclick="addToCart('باراسيتامول 500 مجم', 15, 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80')">إضافة للسلة</button>
                         </div>
                     </div>
                     <div class="product-card medicine-card">
@@ -204,7 +205,7 @@
                                 <span class="current-price">45 جنيه</span>
                             </div>
                             <p class="pharmacy-info"><i class="fas fa-map-marker-alt"></i> متوفر في 6 صيدليات - بني سويف</p>
-                            <button class="btn btn-add-cart" onclick="viewMedicineDetails('أموكسيسيللين')">عرض الصيدليات</button>
+                            <button class="btn btn-add-cart" onclick="addToCart('أموكسيسيللين 500 مجم', 45, 'https://images.unsplash.com/photo-1471864190281-a93a3070b6re?w=500&q=80')">إضافة للسلة</button>
                         </div>
                     </div>
                     <div class="product-card medicine-card">
@@ -219,7 +220,7 @@
                                 <span class="current-price">35 جنيه</span>
                             </div>
                             <p class="pharmacy-info"><i class="fas fa-map-marker-alt"></i> متوفر في 5 صيدليات - ببا</p>
-                            <button class="btn btn-add-cart" onclick="viewMedicineDetails('أوميبرازول')">عرض الصيدليات</button>
+                            <button class="btn btn-add-cart" onclick="addToCart('أوميبرازول 20 مجم', 35, 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=500&q=80')">إضافة للسلة</button>
                         </div>
                     </div>
                     <div class="product-card medicine-card">
@@ -234,7 +235,7 @@
                                 <span class="current-price">25 جنيه</span>
                             </div>
                             <p class="pharmacy-info"><i class="fas fa-map-marker-alt"></i> متوفر في 7 صيدليات - بني سويف</p>
-                            <button class="btn btn-add-cart" onclick="viewMedicineDetails('ميتفورمين')">عرض الصيدليات</button>
+                            <button class="btn btn-add-cart" onclick="addToCart('ميتفورمين 500 مجم', 25, 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80')">إضافة للسلة</button>
                         </div>
                     </div>
                     <div class="product-card medicine-card">
@@ -249,7 +250,7 @@
                                 <span class="current-price">55 جنيه</span>
                             </div>
                             <p class="pharmacy-info"><i class="fas fa-map-marker-alt"></i> متوفر في 4 صيدليات - الفشن</p>
-                            <button class="btn btn-add-cart" onclick="viewMedicineDetails('لوسارتان')">عرض الصيدليات</button>
+                            <button class="btn btn-add-cart" onclick="addToCart('لوسارتان 50 مجم', 55, 'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=500&q=80')">إضافة للسلة</button>
                         </div>
                     </div>
                     <div class="product-card medicine-card">
@@ -264,7 +265,7 @@
                                 <span class="current-price">20 جنيه</span>
                             </div>
                             <p class="pharmacy-info"><i class="fas fa-map-marker-alt"></i> متوفر في 9 صيدليات - بني سويف</p>
-                            <button class="btn btn-add-cart" onclick="viewMedicineDetails('سيتريزين')">عرض الصيدليات</button>
+                            <button class="btn btn-add-cart" onclick="addToCart('سيتريزين 10 مجم', 20, 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&q=80')">إضافة للسلة</button>
                         </div>
                     </div>
                 </div>
@@ -501,6 +502,7 @@
                     <ul class="footer-links">
                         <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
                         <li><a href="medicines.html"><i class="fas fa-pills"></i> الأدوية</a></li>
+                        <li><a href="pharmacies.html"><i class="fas fa-clinic-medical"></i> الصيدليات</a></li>
                         <li><a href="services.html"><i class="fas fa-concierge-bell"></i> خدماتنا</a></li>
                         <li><a href="about.html"><i class="fas fa-info-circle"></i> من نحن</a></li>
                         <li><a href="Contact.html"><i class="fas fa-envelope"></i> اتصل بنا</a></li>

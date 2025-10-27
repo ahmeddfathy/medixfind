@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الصيدليات - MedExFind</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pharmacies-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <p>اكتشف أفضل الصيدليات في بني سويف - خدمة مجانية تربط المرضى بالصيدليات</p>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="logo">
+                <h1>MedExFind</h1>
+            </div>
+
+            <div class="header-actions">
+                <button class="icon-btn search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="icon-btn account-btn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="icon-btn cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <h2>القائمة</h2>
+            <button class="close-menu" id="closeMenu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-menu-list">
+            <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+            <li><a href="medicines.html"><i class="fas fa-pills"></i> الأدوية</a></li>
+            <li><a href="pharmacies.html" class="active"><i class="fas fa-clinic-medical"></i> الصيدليات</a></li>
+            <li><a href="services.html"><i class="fas fa-concierge-bell"></i> خدماتنا</a></li>
+            <li><a href="about.html"><i class="fas fa-info-circle"></i> من نحن</a></li>
+            <li><a href="Contact.html"><i class="fas fa-envelope"></i> اتصل بنا</a></li>
+        </ul>
+    </nav>
+
+    <!-- Pharmacies Header Section -->
+    <section class="pharmacies-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-icon">
+                    <i class="fas fa-clinic-medical"></i>
+                </div>
+                <h1>الصيدليات</h1>
+                <p>اكتشف أفضل الصيدليات في بني سويف - ابحث عن دوائك داخل صيدلية قريبة من مكانك</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter & Search Section -->
+    <section class="filter-search-section">
+        <div class="container">
+            <div class="filter-search-card">
+                <!-- Search Box -->
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="pharmacySearch" placeholder="مربع بحث عن اسم الصيدلية..." class="search-input">
+                </div>
+
+                <!-- Filters -->
+                <div class="filters-row">
+                    <!-- Location Filter -->
+                    <div class="filter-item">
+                        <label><i class="fas fa-map-marker-alt"></i> فلتر:</label>
+                        <select id="locationFilter" class="filter-select">
+                            <option value="">المركز / المدينة</option>
+                            <option value="بني سويف">بني سويف</option>
+                            <option value="ببا">ببا</option>
+                            <option value="الفشن">الفشن</option>
+                            <option value="إهناسيا">إهناسيا</option>
+                            <option value="الواسطى">الواسطى</option>
+                            <option value="ناصر">ناصر</option>
+                            <option value="سمسطا">سمسطا</option>
+                        </select>
+                    </div>
+
+                    <!-- Availability Filter -->
+                    <div class="filter-item">
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="availability" value="all" checked>
+                                <span>الولاية المتاحة</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="availability" value="open">
+                                <span>مفتوح الآن</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Rating Filter -->
+                    <div class="filter-item">
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="rating" value="all" checked>
+                                <span>التقييم (بلا تحديد)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="rating" value="4plus">
+                                <span>4+ نجوم</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pharmacy List Section -->
+    <section class="pharmacy-list-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>عرض الصيدليات</h2>
+                <p class="results-count">عرض <span id="resultsCount">12</span> صيدلية</p>
+            </div>
+
+            <div class="pharmacies-grid" id="pharmaciesGrid">
+                <!-- Pharmacy cards will be dynamically generated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h2 class="footer-logo">MedExFind</h2>
+                    <p class="footer-description">منصة مجانية تربط المرضى بالصيدليات في بني سويف</p>
+                    <a href="tel:+201122881051" class="footer-phone">
+                        <i class="fas fa-phone"></i>
+                        01122881051
+                    </a>
+                </div>
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                        <li><a href="medicines.html"><i class="fas fa-pills"></i> الأدوية</a></li>
+                        <li><a href="pharmacies.html"><i class="fas fa-clinic-medical"></i> الصيدليات</a></li>
+                        <li><a href="services.html"><i class="fas fa-concierge-bell"></i> خدماتنا</a></li>
+                        <li><a href="about.html"><i class="fas fa-info-circle"></i> من نحن</a></li>
+                        <li><a href="Contact.html"><i class="fas fa-envelope"></i> اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>تابعنا</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-snapchat"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MedExFind - جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/201122881051" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+    <script src="pharmacies.js"></script>
+</body>
+</html>

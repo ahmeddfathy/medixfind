@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سلة التسوق - MedExFind</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <p>ابحث عن دوائك في جميع صيدليات بني سويف - خدمة مجانية لربط المرضى بالصيدليات</p>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="logo">
+                <h1>MedExFind</h1>
+            </div>
+
+            <div class="header-actions">
+                <button class="icon-btn search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="icon-btn account-btn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="icon-btn cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="headerCartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <h2>القائمة</h2>
+            <button class="close-menu" id="closeMenu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-menu-list">
+            <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+            <li><a href="medicines.html"><i class="fas fa-pills"></i> الأدوية</a></li>
+            <li><a href="pharmacies.html"><i class="fas fa-clinic-medical"></i> الصيدليات</a></li>
+            <li><a href="services.html"><i class="fas fa-concierge-bell"></i> خدماتنا</a></li>
+            <li><a href="about.html"><i class="fas fa-info-circle"></i> من نحن</a></li>
+            <li><a href="Contact.html"><i class="fas fa-envelope"></i> اتصل بنا</a></li>
+        </ul>
+    </nav>
+
+    <!-- Cart Hero Section -->
+    <section class="cart-hero" style="background-image: url('cart/cart.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        <div class="container">
+            <div class="cart-hero-content">
+                <div class="cart-hero-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h1>سلة التسوق</h1>
+                <p>راجع أدويتك المختارة واحجزها من أقرب صيدلية</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Content -->
+    <section class="cart-section">
+        <div class="container">
+            <div class="cart-container">
+                <!-- Cart Items -->
+                <div class="cart-items-section">
+                    <div class="cart-header">
+                        <h2><i class="fas fa-shopping-bag"></i> الأدوية المختارة</h2>
+                        <span class="items-count" id="itemsCount">0 عنصر</span>
+                    </div>
+
+                    <div class="cart-items" id="cartItems">
+                        <!-- Cart items will be dynamically generated -->
+                    </div>
+
+                    <!-- Empty Cart State -->
+                    <div class="empty-cart" id="emptyCart">
+                        <div class="empty-cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3>سلة التسوق فارغة</h3>
+                        <p>لم تقم بإضافة أي أدوية إلى السلة بعد</p>
+                        <a href="medicines.html" class="btn btn-primary">
+                            <i class="fas fa-search"></i>
+                            ابدأ التسوق
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <div class="cart-summary-section">
+                    <div class="cart-summary-card">
+                        <h3><i class="fas fa-calculator"></i> ملخص الطلب</h3>
+                        
+                        <div class="summary-details">
+                            <div class="summary-row">
+                                <span>عدد الأدوية:</span>
+                                <span id="totalItems">0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>المجموع الفرعي:</span>
+                                <span id="subtotal">0 جنيه</span>
+                            </div>
+                            <div class="summary-row discount">
+                                <span>خصم الخدمة المجانية:</span>
+                                <span>-0 جنيه</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>المجموع الكلي:</span>
+                                <span id="totalAmount">0 جنيه</span>
+                            </div>
+                        </div>
+
+
+                        <div class="cart-actions">
+                            <button class="btn btn-secondary" onclick="clearCart()">
+                                <i class="fas fa-trash"></i>
+                                مسح السلة
+                            </button>
+                            <button class="btn btn-primary" onclick="proceedToCheckout()" id="checkoutBtn" disabled>
+                                <i class="fas fa-check"></i>
+                                تأكيد الطلب
+                            </button>
+                        </div>
+
+                        <div class="service-note">
+                            <div class="note-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="note-content">
+                                <h5>ملاحظة مهمة</h5>
+                                <p>هذه خدمة مجانية لربطك بالصيدليات. سيتم التواصل معك لتأكيد توفر الأدوية والأسعار النهائية.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommended Medicines -->
+    <section class="recommended-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-star"></i> أدوية مقترحة</h2>
+                <p>قد تحتاج أيضاً إلى هذه الأدوية</p>
+            </div>
+            
+            <div class="recommended-grid">
+                <div class="recommended-card">
+                    <div class="recommended-image">
+                        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&q=80" alt="باراسيتامول">
+                    </div>
+                    <div class="recommended-info">
+                        <h4>باراسيتامول 500 مجم</h4>
+                        <p class="recommended-price">15 جنيه</p>
+                        <button class="btn btn-add" onclick="addToCart('باراسيتامول 500 مجم', 15, 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300&q=80')">
+                            <i class="fas fa-plus"></i> إضافة للسلة
+                        </button>
+                    </div>
+                </div>
+
+                <div class="recommended-card">
+                    <div class="recommended-image">
+                        <img src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=300&q=80" alt="أموكسيسيللين">
+                    </div>
+                    <div class="recommended-info">
+                        <h4>أموكسيسيللين 500 مجم</h4>
+                        <p class="recommended-price">45 جنيه</p>
+                        <button class="btn btn-add" onclick="addToCart('أموكسيسيللين 500 مجم', 45, 'https://images.unsplash.com/photo-1471864190281-a93a3070b6re?w=300&q=80')">
+                            <i class="fas fa-plus"></i> إضافة للسلة
+                        </button>
+                    </div>
+                </div>
+
+                <div class="recommended-card">
+                    <div class="recommended-image">
+                        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=300&q=80" alt="أوميبرازول">
+                    </div>
+                    <div class="recommended-info">
+                        <h4>أوميبرازول 20 مجم</h4>
+                        <p class="recommended-price">35 جنيه</p>
+                        <button class="btn btn-add" onclick="addToCart('أوميبرازول 20 مجم', 35, 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=300&q=80')">
+                            <i class="fas fa-plus"></i> إضافة للسلة
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h2 class="footer-logo">MedExFind</h2>
+                    <p class="footer-description">MedExFind هي منصة مجانية تربط المرضى بالصيدليات في بني سويف. نساعدك في البحث عن الأدوية المتوفرة بأفضل الأسعار مع إمكانية التواصل المباشر مع الصيدليات. خدمة تذكير بمواعيد الأدوية ومتابعة الأمراض المزمنة.</p>
+                    <a href="tel:+201122881051" class="footer-phone">
+                        <i class="fas fa-phone"></i>
+                        01122881051
+                    </a>
+                </div>
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                        <li><a href="medicines.html"><i class="fas fa-pills"></i> الأدوية</a></li>
+                        <li><a href="pharmacies.html"><i class="fas fa-clinic-medical"></i> الصيدليات</a></li>
+                        <li><a href="services.html"><i class="fas fa-concierge-bell"></i> خدماتنا</a></li>
+                        <li><a href="about.html"><i class="fas fa-info-circle"></i> من نحن</a></li>
+                        <li><a href="Contact.html"><i class="fas fa-envelope"></i> اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>تابعنا</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-snapchat"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MedExFind - جميع الحقوق محفوظة | خدمة مجانية لأهالي بني سويف</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/201122881051" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>

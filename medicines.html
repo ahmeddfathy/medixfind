@@ -377,6 +377,7 @@
         <ul class="mobile-menu-list">
             <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
             <li><a href="medicines.html"><i class="fas fa-pills"></i> الأدوية</a></li>
+            <li><a href="pharmacies.html"><i class="fas fa-clinic-medical"></i> الصيدليات</a></li>
             <li><a href="services.html"><i class="fas fa-concierge-bell"></i> خدماتنا</a></li>
             <li><a href="about.html"><i class="fas fa-info-circle"></i> من نحن</a></li>
             <li><a href="Contact.html"><i class="fas fa-envelope"></i> اتصل بنا</a></li>
@@ -589,6 +590,7 @@
                     <ul class="footer-links">
                         <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
                         <li><a href="medicines.html"><i class="fas fa-pills"></i> الأدوية</a></li>
+                        <li><a href="pharmacies.html"><i class="fas fa-clinic-medical"></i> الصيدليات</a></li>
                         <li><a href="services.html"><i class="fas fa-concierge-bell"></i> خدماتنا</a></li>
                         <li><a href="about.html"><i class="fas fa-info-circle"></i> من نحن</a></li>
                         <li><a href="Contact.html"><i class="fas fa-envelope"></i> اتصل بنا</a></li>
@@ -779,7 +781,7 @@
         }
         
         function viewMedicineDetails(medicineName) {
-            alert(`عرض تفاصيل ${medicineName}\n\nسيتم تطوير هذه الميزة قريباً لعرض جميع الصيدليات التي يتوفر فيها الدواء مع الأسعار وإمكانية الاتصال المباشر.`);
+            window.location.href = `medicine-details.html?name=${encodeURIComponent(medicineName)}`;
         }
     </script>
 </body>
