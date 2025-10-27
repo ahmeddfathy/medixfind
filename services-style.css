@@ -2,7 +2,7 @@
 
 .services-hero {
     background: linear-gradient(135deg, rgba(72, 207, 203, 0.7), rgba(72, 207, 203, 0.7)), 
-                url('services/hero.png');
+                url('services/banner.png');
     background-size: cover;
     background-position: center;
     padding: 100px 0 80px;
