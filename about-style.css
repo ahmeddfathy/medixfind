@@ -1,63 +1,412 @@
-body { 
-    background-color: #F5F5F5; 
-    color: #424242; 
-    font-family: 'Cairo', sans-serif; 
-    font-size: 16px; 
+/* General Styles */
+body {
+    background-color: #F5F5F5;
+    color: #424242;
+    font-family: 'Cairo', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
 }
-.header-section { 
-    background: url('https://img.freepik.com/free-photo/medicine-blue-background-flat-lay_23-2149341579.jpg?t=st=1729350000~exp=1729353600~hmac=2a9b7d9a63d21ff1a8ac1eb4f1a8a6dfcd32e0a7b58bce278f77f2195f5148b7&w=1380') center/cover no-repeat; 
-    color: white; 
-    padding: 80px 0; 
-    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, rgba(34, 151, 153, 0.85) 0%, rgba(72, 207, 203, 0.85) 100%), 
+                url('https://img.freepik.com/free-photo/medicine-blue-background-flat-lay_23-2149341579.jpg') center/cover no-repeat;
+    padding: 100px 0 80px;
+    text-align: center;
     position: relative;
 }
-.header-section::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(34, 151, 153, 0.6);
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    color: white;
 }
-.header-content {
-    position: relative;
-    z-index: 2;
-}
-.header-logo {
-    width: 100px;
+
+.hero-badge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
     margin-bottom: 20px;
-}
-h2 i { color: #229799; margin-left: 8px; }
-.values-card { 
-    background-color: white; 
-    border: 1px solid #229799; 
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
-    transition: transform 0.3s; 
+    letter-spacing: 1px;
 }
 
- .values-card:hover { transform: translateY(-5px); }
-.team-member { text-align: center; margin-bottom: 20px; }
-.team-member h5 { font-weight: 600; color: #229799; }
-.carousel-item img { width: 100px; height: 100px; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-h2 { font-size: 2rem; font-weight: 600; color: #424242; }
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
 
-/* خلفية بيضاء للسكشنات */
-.py-5 {
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    opacity: 0.95;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* About Info Section */
+.about-info {
+    padding: 80px 0;
     background-color: white;
 }
 
-/* إخفاء أسهم الكاروسيل في الموبايل */
-.carousel-control-prev,
-.carousel-control-next {
-    display: none !important;
+.info-image img {
+    border-radius: 20px;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
-#teamCarousel .carousel-control-prev,
-#teamCarousel .carousel-control-next {
-    display: none !important;
+.info-content {
+    padding: 0 30px;
 }
 
-/* تحسين للموبايل */
-@media (max-width: 768px) { 
-    .header-section { padding: 40px 0; }
-    .header-section h1 { font-size: 2rem; }
-    body { font-size: 14px; }}
+.info-label {
+    display: inline-block;
+    color: #48CFCB;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.info-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #229799;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.info-text {
+    font-size: 1.1rem;
+    color: #424242;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+/* Vision & Mission Section */
+.vision-mission {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.vm-card {
+    background-color: white;
+    padding: 50px 40px;
+    border-radius: 20px;
+    text-align: center;
+    height: 100%;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+}
+
+.vm-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #229799 0%, #48CFCB 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+}
+
+.vm-icon i {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.vm-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #229799;
+    margin-bottom: 20px;
+}
+
+.vm-text {
+    font-size: 1.1rem;
+    color: #424242;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* Core Values Section */
+.core-values {
+    padding: 80px 0;
+    background: linear-gradient(135deg, rgba(34, 151, 153, 0.9) 0%, rgba(72, 207, 203, 0.9) 100%), 
+                url('https://img.freepik.com/free-photo/medicine-blue-background-flat-lay_23-2149341579.jpg') center/cover no-repeat;
+    position: relative;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: white;
+    opacity: 0.95;
+}
+
+.value-card {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    height: 100%;
+}
+
+.value-icon {
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.value-icon i {
+    font-size: 2rem;
+    color: #229799;
+}
+
+.value-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.value-text {
+    font-size: 1rem;
+    color: white;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.95;
+}
+
+/* Team Section */
+.team-section {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.team-card {
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    height: 100%;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.team-image {
+    margin-bottom: 20px;
+}
+
+.team-image img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #48CFCB;
+}
+
+.team-info {
+    padding-top: 10px;
+}
+
+.team-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #229799;
+    margin-bottom: 8px;
+}
+
+.team-role {
+    font-size: 1rem;
+    color: #424242;
+    opacity: 0.7;
+    margin: 0;
+}
+
+/* Stats Section */
+.stats-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, rgba(34, 151, 153, 0.9) 0%, rgba(72, 207, 203, 0.9) 100%), 
+                url('https://img.freepik.com/free-photo/medicine-blue-background-flat-lay_23-2149341579.jpg') center/cover no-repeat;
+    position: relative;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.stat-icon {
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.stat-icon i {
+    font-size: 2rem;
+    color: #229799;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: white;
+    opacity: 0.95;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .info-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .info-content {
+        padding: 30px 0 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 60px 0 50px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .about-info,
+    .vision-mission,
+    .core-values,
+    .team-section,
+    .stats-section {
+        padding: 50px 0;
+    }
+    
+    .info-title {
+        font-size: 1.6rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .vm-card {
+        padding: 35px 25px;
+        margin-bottom: 20px;
+    }
+    
+    .value-card {
+        padding: 30px 20px;
+        margin-bottom: 15px;
+    }
+    
+    .team-card {
+        padding: 25px;
+        margin-bottom: 15px;
+    }
+    
+    .stat-card {
+        padding: 30px 15px;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .info-title {
+        font-size: 1.4rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .vm-title {
+        font-size: 1.4rem;
+    }
+    
+    .value-title {
+        font-size: 1.1rem;
+    }
+    
+    .team-name {
+        font-size: 1.1rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+}
 
